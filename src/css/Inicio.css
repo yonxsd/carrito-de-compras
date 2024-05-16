@@ -1,0 +1,34 @@
+.inicop  {
+    background-color: antiquewhite;
+    border-radius: 2rem;
+    
+  
+ 
+  width: 45%;
+  height: 70%;
+
+  margin-top: 2rem;
+  margin-left: 2rem;
+}
+
+.inicop > h1 {
+    font-size:larger;
+
+}
+
+.inicop > h2 {
+    display: grid;
+    
+   
+    font-size:medium;
+    margin-top: 5rem;
+    margin-left: 5rem;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.inicop > button{
+    
+    width: 50%;
+    margin-top:  10rem;
+    margin-left: -2rem;
+}
