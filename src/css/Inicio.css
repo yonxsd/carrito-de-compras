@@ -1,34 +1,46 @@
-.inicop  {
-    background-color: antiquewhite;
-    border-radius: 2rem;
-    
-  
- 
-  width: 45%;
-  height: 70%;
-
-  margin-top: 2rem;
-  margin-left: 2rem;
+.Inic{
+    display: flex;
+    align-items: center;
 }
 
-.inicop > h1 {
-    font-size:larger;
-
-}
-
-.inicop > h2 {
-    display: grid;
-    
-   
-    font-size:medium;
-    margin-top: 5rem;
+.inicop{
+    margin-top: 7rem;
     margin-left: 5rem;
-    grid-template-columns: repeat(4, 1fr);
+    width: 25%;
+    height: 410px;
+    background-color: white;
+    box-shadow: 1px 1px 1px 1px black;
+    border-radius: 1rem;
+    
+}
+
+.inicop > img{
+   
+    min-height: 150px;
+    width: 150px;
+}
+
+.inicop > h1{
+    
+  font-size: large;
+}
+
+.inicop > h2{
+    margin: auto;
+    font-size: small;
+    width: 76.5%;
+    
 }
 
 .inicop > button{
-    
-    width: 50%;
-    margin-top:  10rem;
-    margin-left: -2rem;
+    margin-top: 3rem;
+    width: 15rem;
+    height: 2.5rem;
+    border-radius: 2rem;
+}
+
+.but:hover{
+    background-color: black;
+    color: darkorange;
+    cursor: pointer;
 }
