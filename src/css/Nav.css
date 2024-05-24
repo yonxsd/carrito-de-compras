@@ -1,19 +1,21 @@
+/*estilus de Nav*/
 .nav{
     position: absolute;
     background-color: black;
     width: 100%;
     height: 60px;
 }
-
+/*ajuste de la imagen del carrito*/
 .car{
     position: relative;
     margin-top: 0.3rem;
     margin-left: 65rem;
     cursor: pointer;
-    width: 1.8rem; /* Defina a largura desejada */
+    width: 1.8rem; 
     height: auto;
 }
 
+/* Defina a largura desejada */
 .cart-count {
     position: absolute;
     top: 1rem;
@@ -23,4 +25,4 @@
     border-radius: 50%;
     padding: 5px 7px;
     font-size: 8px;
-  }
+}

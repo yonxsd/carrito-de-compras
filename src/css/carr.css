@@ -1,79 +1,152 @@
-/* src/css/Carrito.css */
+/* estilo del contenedor */
 
 .carrito-container {
-    position: absolute;
-    padding: 20px;
-    background-color: #f8f8f8;
-    border-radius: 8px;
-    max-width: 600px;
-    margin-top: 7rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
+  position: absolute;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  max-width: 900px;
+  margin-top: 7rem;
+  margin-left: 7rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   
-  .carrito-container h2 {
-    margin-bottom: 20px;
-    text-align: center;
-    color: #333;
-  }
-  
+}
+
+/*texto pruductos agregados*/
+.carrito-container h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+/*ajusta de la imajen de los productos*/ 
+.imgx{
+  width: 150px;
+  height: 100px;
+  margin-left: -28.9rem;
+  border-radius: 1rem;
+  align-items: center;
+}
+
+/* Lista de elementos del carrito */
   .carrito-lista {
     list-style: none;
     padding: 0;
     margin: 0;
   }
-  
+ /* Elemento individual del carrito */
+ 
   .carrito-item {
-    display: flex;
+
     align-items: center;
     padding: 10px;
     border-bottom: 1px solid #ddd;
   }
-  
+   /* Información del elemento del carrito */
   .carrito-item-info {
+   
     flex-grow: 1;
+    margin-top: -4.5rem;
+    margin-left: 4rem;
   }
-  
-  .carrito-item-name {
+  /* Nombre del producto */
+  .nomproduc {
     display: block;
+    margin-left: 10rem;
     font-size: 16px;
     font-weight: bold;
     color: #333;
   }
-  
+  /*precio de los productos*/
   .carrito-item-price {
     display: block;
     font-size: 14px;
     color: #999;
   }
   
-  .carrito-item-remove {
-    background-color: #ff4d4d;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
+ /* Botón para eliminar un producto del carrito */ 
+.carrito-item-remove {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgb(20, 20, 20);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+  cursor: pointer;
+  transition-duration: .3s;
+  overflow: hidden;
+  position: relative;
+  margin-left: 35rem;
+}
+   
+.svgIcon {
+  width: 12px;
+  transition-duration: .3s;
+}
   
-  .carrito-item-remove:hover {
-    background-color: #ff1a1a;
-  }
+   
+.svgIcon > path {
+  fill: white;
+}
+   
+.carrito-item-remove:hover {
+  width: 140px;
+  border-radius: 50px;
+  transition-duration: .3s;
+  background-color: rgb(255, 20, 20);
+  align-items: center;
+}
+   
+.carrito-item-remove:hover > .svgIcon {
+  width: 50px;
+  transition-duration: .3s;
+  transform: translateY(60%);
+}
   
-  .carrito-clear {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #333;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: background-color 0.3s ease;
-  }
+   
+.carrito-item-remove::before {
+  position: absolute;
+  top: -20px;
+  content: "Delete";
+  color: white;
+  transition-duration: .3s;
+  font-size: 2px;
+}
   
-  .carrito-clear:hover {
-    background-color: #555;
-  }
+.carrito-item-remove:hover::before {
+  font-size: 13px;
+  opacity: 1;
+  transform: translateY(30px);
+  transition-duration: .3s;
+}
+   
+/*boton de borrar todo los productos agregados*/  
+.carrito-clear {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
   
+.carrito-clear:hover {
+  background-color: #555;
+}
+  
+.total{
+  background-color: #f8f8f8;
+  position: absolute;
+  margin-top: 7rem;
+  margin-left: 65rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.284);
+  width: 25%;
+}  

@@ -2,11 +2,12 @@ import React from 'react'
 import "../css/Inicio.css"
 import { useDispatch } from 'react-redux';
 import { addItem } from '../features/cart/CartSlice';
-import Carrito from './Carrito';
 
 const Inicio = () => {
-   const dispatch = useDispatch();
+  // Hook useDispatch para despachar acciones a Redux
+  const dispatch = useDispatch();
 
+  //lista de productos 1
   const products1 = [
     {
       id: 1,
@@ -18,18 +19,18 @@ const Inicio = () => {
       id: 2,
       name: 'Amazon Echo (3rd generation)',
       description: 'Smart speaker with Alexa, Charcoal Fabric',
-      img: 'https://media.very.co.uk/i/very/P6LTG_SQ1_0000000071_CHARCOAL_SLf?$300x400_retinamobilex2$',
+      img: 'https://i.blogs.es/b6123e/airpods-pro-2-analisis-applesfera-026/1366_2000.jpeg',
       price: 200
     },
     {
       id: 3,
       name: 'Amazon Echo (3rd generation)',
       description: 'Smart speaker with Alexa, Charcoal Fabric',
-      img: 'https://media.very.co.uk/i/very/P6LTG_SQ1_0000000071_CHARCOAL_SLf?$300x400_retinamobilex2$',
-      price: 200
+      img: 'https://st.depositphotos.com/1765561/4857/i/450/depositphotos_48579839-stock-photo-opened-blue-stand-mixer.jpg',
+      price: 500
     },
-    // Agrega más productos aquí si lo deseas
    ];
+   //lista de productos 2
    const products2 = [
     {
       id: 4,
@@ -51,15 +52,15 @@ const Inicio = () => {
       img: 'https://media.very.co.uk/i/very/P6LTG_SQ1_0000000071_CHARCOAL_SLf?$300x400_retinamobilex2$',
       price: 600
     },
-    // Agrega más productos aquí si lo deseas
-   ];
-
-   const handleAddItem = (product) => {
+  ];
+  //manejadora para agregar productos al carrito  
+  const handleAddItem = (product) => {
     dispatch(addItem(product));
-   };
+  };
+
   return (
     <div>
-       
+       {/*Rendirisar la primera lista de productos */}
       <div className='Inic'>
          {products1.map((product) => (
             <div className='inicop' key={product.id}>
@@ -70,12 +71,14 @@ const Inicio = () => {
                className='but'
                onClick={() => handleAddItem(product)}
               >
-                Agregar
+                <span>Agregar</span>
               </button>
            </div>
          ))}
         
       </div>  
+
+      {/*Rendirisar la segunda lista de productos */}
       <div className='Inic'>
         {products2.map((product) => (
           <div className='inicop' key={product.id}>
@@ -86,7 +89,7 @@ const Inicio = () => {
               className='but'
               onClick={() => handleAddItem(product)}
             >
-              Agregar
+              <span>Agregar</span>
             </button>
           </div>
         ))}
