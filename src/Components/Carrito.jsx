@@ -2,6 +2,7 @@ import React from 'react'
 import '../css/carr.css' // Importacion de estilos
 import { useSelector, useDispatch } from 'react-redux';// Importa hooks de react-redux para interactuar con el estado global de Redux.
 import { removeItem, clearCart } from '../features/cart/CartSlice';// Importa las acciones para eliminar un ítem y vaciar el carrito desde el slice del carrito.
+import {  Link } from 'react-router-dom';// Importa componentes de react-router-dom para definir rutas y enlaces
 
 const Carrito = () => {
     
@@ -22,10 +23,19 @@ const Carrito = () => {
   };
 
   // Calcula el precio total de los productos en el carrito
-  const total = items.reduce((sum, item) => sum + item.price, 0);
+  const subtotal = items.reduce((sum, item) => sum + item.price, 0);
     
   // Calcula el número total de productos en el carrito
   const itemCount = items.length;
+
+  // Calcula el IVA del subtotal
+  const iva = subtotal * 0.15;
+  
+  // Define el costo de envío
+  const shippingCost = 10;
+
+ // Calcula el total final sumando el subtotal, el IVA y el costo de envío
+ const total = subtotal + iva + shippingCost;
 
   return (
     <div>
@@ -54,9 +64,34 @@ const Carrito = () => {
       
       {/* Contenedor para mostrar el total de los productos */}
       <div className='total'>
-        <h2>Total de los productos</h2>
-        <h3>Total({itemCount} productos): ${total}</h3>
+        <h2>Resumen del Pedido</h2>
+        <h3>Subtotal ({itemCount} productos): ${subtotal.toFixed(2)}</h3>
+        <h3>IVA (15%): ${iva.toFixed(2)}</h3>
+        <h3>Envío: ${shippingCost.toFixed(2)}</h3>
+        <h3>Total: ${total.toFixed(2)}</h3>
       </div>
+
+      <div className='regresar'>
+        <button class="cta">
+          <Link to="/" className='li'><span class="hover-underline-animation"> Regresar </span></Link>
+          <svg
+            id="arrow-horizontal"
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="10"
+            viewBox="0 0 46 16"
+          >
+            <path
+              id="Path_10"
+              data-name="Path 10"
+              d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
+              transform="translate(30)"
+            ></path>
+          </svg>
+        </button>
+
+      </div>
+    
     </div>
   )
 }
