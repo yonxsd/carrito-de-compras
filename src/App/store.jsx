@@ -4,6 +4,7 @@ import storage from 'redux-persist/lib/storage';
 import { combineReducers } from 'redux';
 import cartReducer from '../features/cart/CartSlice';
 
+
 /**
  * Configuración de persistencia
  * - key: Clave principal para el almacenamiento persistente.
@@ -28,6 +29,7 @@ const rootReducer = combineReducers({
  */
 const store = configureStore({
   reducer: rootReducer,
+  
 });
 
 /**
