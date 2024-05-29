@@ -81,6 +81,7 @@
   transition-duration: .3s;
   overflow: hidden;
   position: relative;
+  margin-top: -2rem;
   margin-left: 35rem;
 }
    
@@ -124,7 +125,39 @@
   transform: translateY(30px);
   transition-duration: .3s;
 }
-   
+
+/**/
+.carrito-item-quantity{
+  position:relative;
+  margin-top: 1rem;
+  margin-left: -15rem;
+  
+}
+
+.boton1{
+  
+  width: 26px;
+  background-color: #000000;
+  color: white;
+  border-radius: 2rem;
+  margin-left: 1rem;
+}
+
+
+.num{
+  position:static;
+  margin-left: 0.6rem;
+  font-weight: bold;
+}
+
+.boton2{
+  width: 26px;
+  background-color: #000000;
+  color: white;
+  border-radius: 3rem;
+  margin-left: 0.7rem;
+}
+/**/
 /*boton de borrar todo los productos agregados*/  
 .carrito-clear {
   display: block;

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux';// Importa el hook useSelector de react-redux para acceder al estado de Redux
 import car from '../img/carro-de-la-carretilla.png' // Importa la imagen del icono del carrito de compras
+import logo from '../img/Blue Black Modern Simple Design Hotel and Resort Logo - Logos.png'
 import { Route, Routes, Link } from 'react-router-dom';// Importa componentes de react-router-dom para definir rutas y enlaces
 // Importa los componentes Carrito e Inicio que serán utilizados en las rutas
 import Carrito from '../Components/Carrito';
@@ -17,12 +18,17 @@ const Nav = () => {
   return (
     <div>
       {/*a qui se muestra lo qeu es el Nav y el carrito de compras */}
+      
       <nav className='nav'> 
+        
         <ul>
          <li>
-          <Link to='/Carrito'>
-            <img src={car} alt="carr" className='car'/>
-            {itemCount > 0 && <span className="cart-count">{itemCount}</span>}
+          <Link to='/Carrito' className='cart-link'>
+             <div className='cart-container'>
+               <img src={logo} alt=""  className='logo'/>
+                <img src={car} alt="carr" className='car'/>
+                {itemCount > 0 && <span className="cart-count">{itemCount}</span>}
+             </div>
           </Link>
          </li>
         </ul>

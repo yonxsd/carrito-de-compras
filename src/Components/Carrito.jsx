@@ -1,7 +1,7 @@
 import React from 'react'
 import '../css/carr.css' // Importacion de estilos
 import { useSelector, useDispatch } from 'react-redux';// Importa hooks de react-redux para interactuar con el estado global de Redux.
-import { removeItem, clearCart } from '../features/cart/CartSlice';// Importa las acciones para eliminar un ítem y vaciar el carrito desde el slice del carrito.
+import { incrementQuantity, decrementQuantity, removeItem, clearCart } from '../features/cart/CartSlice';// Importa las acciones para eliminar un ítem y vaciar el carrito desde el slice del carrito.
 import {  Link } from 'react-router-dom';// Importa componentes de react-router-dom para definir rutas y enlaces
 
 const Carrito = () => {
@@ -11,6 +11,14 @@ const Carrito = () => {
 
   // Obtiene la función dispatch para enviar acciones al store de Redux
   const dispatch = useDispatch();
+ 
+  const handleIncrementQuantity = (item) => {
+    dispatch(incrementQuantity(item));
+  };
+
+  const handleDecrementQuantity = (item) => {
+    dispatch(decrementQuantity(item));
+  };
 
   // Función para manejar la eliminación de un ítem del carrito
   const handleRemoveItem = (item) => {
@@ -22,11 +30,13 @@ const Carrito = () => {
     dispatch(clearCart());
   };
 
+
+
+
   // Calcula el precio total de los productos en el carrito
-  const subtotal = items.reduce((sum, item) => sum + item.price, 0);
+  const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
     
-  // Calcula el número total de productos en el carrito
-  const itemCount = items.length;
+  const itemCount = items.reduce((count, item) => count + item.quantity, 0);
 
   // Calcula el IVA del subtotal
   const iva = subtotal * 0.15;
@@ -52,7 +62,13 @@ const Carrito = () => {
                 {/* Nombre y precio del producto */}
                 <span className="carrito-item-name">{item.name}</span>
                 <span className="carrito-item-price">${item.price}</span>
+                <div className="carrito-item-quantity">
+                  <button onClick={() => handleDecrementQuantity(item)} className='boton1'>-</button>
+                  <span className='num'>{item.quantity}</span>
+                  <button onClick={() => handleIncrementQuantity(item)} className='boton2'>+</button>
+                </div>
               </div>
+              
               {/* Botón para eliminar el producto */}
               <button className="carrito-item-remove" onClick={() => handleRemoveItem(item)}><svg viewBox="0 0 448 512" class="svgIcon"><path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"></path></svg></button>
             </li>
